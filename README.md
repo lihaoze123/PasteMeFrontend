@@ -1,3 +1,5 @@
+**这是我基于v3.1.0修改的版本，去除了底部烦人的推广**
+
 # PasteMe Frontend
 
 Using Vue and Bootstrap.
