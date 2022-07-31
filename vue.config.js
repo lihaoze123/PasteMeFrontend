@@ -1,8 +1,6 @@
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
-const version = require("./build.config").version;
-
-let webPath = 'https://cdn.jsdelivr.net/gh/PasteUs/CDN@' + version + '/pasteme/';
+let webPath = '/';
 
 const cdn = {
     // 开发环境
@@ -46,7 +44,7 @@ const cdn = {
 module.exports = {
     devServer: {
         proxy: {
-            "/_api": {
+            "/api": {
                 secure: false,
                 target: "http://dev.pasteme.lucien.ink",
                 changeOrigin: true
