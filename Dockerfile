@@ -1,13 +1,10 @@
-FROM node:latest as builder
-COPY ./ /source
-RUN cd /source && \
-npm install --registry=https://registry.npm.taobao.org && \
-npm run build && \
-rm -rf pasteme/conf.d pasteme/report.html
-
-FROM nginx:latest
+FROM nginx:1.17
 LABEL maintainer="Lucien Shui" \
       email="lucien@lucien.ink"
-COPY ./docker/nginx.conf /etc/nginx/conf.d/default.conf
-COPY --from=builder /source/pasteme /www/pasteme
+COPY public/conf.d/docker/nginx.conf pasteme/index.html pasteme/usr pasteme/favicon.ico /tmp/
+RUN mv /tmp/nginx.conf /etc/nginx/conf.d/default.conf && \
+    mkdir -p /www/pasteme/usr && \
+    mv /tmp/index.html /tmp/favicon.ico /www/pasteme/ && \
+    mv /tmp/config.example.json /www/pasteme/usr/config.json && \
+    mv /tmp/usr.js /www/pasteme/usr/
 EXPOSE 8080

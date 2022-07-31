@@ -7,6 +7,7 @@
                     <b-form-input
                     type="password"
                     v-model="form.password"
+                    v-focus
                     :placeholder="flag ? '' : this.$t('lang.auth.form.placeholder')">
                 </b-form-input>
                 </b-form-group>
@@ -31,7 +32,7 @@
         },
         methods: {
             onSubmit() {
-                const sendUrl = `${this.$store.getters.config.api}${this.$route.params.key},${this.form.password}`;
+                const sendUrl = `${this.$store.getters.config.backendApi}${this.$route.params.key},${this.form.password}`;
                 this.api.get(sendUrl, {
                     json: 'true'
                 }).then(({status, content, lang}) => {

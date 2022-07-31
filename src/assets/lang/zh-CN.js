@@ -8,8 +8,8 @@ export const lang = {
                 prepend: '高亮'
             },
             {
-                prepend: '加密',
-                placeholder: '无需加密请留空'
+                prepend: '密码',
+                placeholder: '无需设置密码请留空'
             }
         ],
         textarea: {
@@ -81,6 +81,7 @@ export const lang = {
             feedback: '我要吐槽'
         },
         donate: '捐助',
+        more: '更多',
         beg: '给个 Star 好不啦'
     },
     not_found: {

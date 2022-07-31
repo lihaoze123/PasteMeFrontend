@@ -4,33 +4,36 @@
 
 Using Vue and Bootstrap.
 
+[![CodeFactor](https://www.codefactor.io/repository/github/pasteus/pastemefrontend/badge)](https://www.codefactor.io/repository/github/pasteus/pastemefrontend) [![Build Status](https://travis-ci.com/PasteUs/PasteMeFrontend.svg?branch=master)](https://travis-ci.com/PasteUs/PasteMeFrontend)
+
 ## Project setup
 
-```
+```bash
 npm install
+cp public/usr/config.example.json public/usr/config.json
 ```
 
 ### Compiles and hot-reloads for development
 
-```
+```bash
 npm run serve
 ```
 
 ### Compiles and minifies for production
 
-```
+```bash
 npm run build
 ```
 
 ### Run your tests
 
-```
+```bash
 npm run test
 ```
 
 ### Lints and fixes files
 
-```
+```bash
 npm run lint
 ```
 

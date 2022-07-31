@@ -8,16 +8,13 @@ import router from './assets/js/router'
 import store from './assets/js/store'
 import i18n from './assets/js/i18n'
 import api from './assets/js/api'
-import markdownIt from './assets/js/external/markdownIt'
+import markdownIt from './assets/js/external/markdown-it'
+import DirectiveRegister from './assets/js/event/directive-register'
 
 import '@/assets/css/global.css'
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { faGlobeAsia } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-
-library.add(faGlobeAsia);
 
 let VueCookie = require('vue-cookie');
+DirectiveRegister(Vue);
 Vue.config.productionTip = false;
 Vue.use(BootstrapVue);
 Vue.use(VueCookie);
@@ -27,11 +24,10 @@ Vue.prototype.api = api;
 Vue.prototype.markdown = markdownIt;
 
 Vue.component('QRCode', VueQrcode);
-Vue.component('font-awesome-icon', FontAwesomeIcon);
 
 api.get('/usr/config.json').then(response => {
     store.state.config = response;
-    return  api.get(store.state.config.api, {method: "beat"});
+    return  api.get(store.state.config.backendApi, {method: "beat"});
 }).then(() => {
     return new Vue({
         store,
