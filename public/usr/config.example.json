@@ -1,5 +1,5 @@
 {
-  "backendApi": "/api//",
+  "api": "/api/",
   "adminApi": "",
   "footer": [
     {
